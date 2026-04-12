@@ -2,7 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as SecureStore from "expo-secure-store";
 import { Platform } from "react-native";
 import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
-import { setBaseUrl, setAuthTokenGetter } from "@workspace/api-client-react";
+import { setBaseUrl, setAuthTokenGetter } from "../lib/api-client";
 
 export type UserProfile = {
   id: number;
@@ -63,8 +63,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (domain) {
       setBaseUrl(`https://${domain}`);
     } else {
-      // Fallback for local development
-      setBaseUrl("http://localhost:3000");
+      // Fallback for local development — use your PC's local IP
+      setBaseUrl("http://192.168.100.10:3000");
     }
   }, []);
 
