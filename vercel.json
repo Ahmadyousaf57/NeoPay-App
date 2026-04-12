@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "buildCommand": "pnpm install && pnpm build",
+  "installCommand": "pnpm install",
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/artifacts/api-server/dist/index.mjs"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/artifacts/mobile/dist/$1"
+    }
+  ],
+  "functions": {
+    "artifacts/api-server/dist/index.mjs": {
+      "runtime": "vercel-node@latest",
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  }
+}
