@@ -45,7 +45,7 @@ export default function LoginScreen() {
     setLoading(true);
     try {
       const domain  = process.env["EXPO_PUBLIC_DOMAIN"];
-      const baseUrl = domain ? `https://${domain}` : "http://192.168.100.10:3000";
+      const baseUrl = domain ? `https://${domain}` : "https://workspaceapi-server-production-a8a9.up.railway.app";
       const res  = await fetch(`${baseUrl}/api/auth/login`, {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
@@ -120,7 +120,7 @@ export default function LoginScreen() {
 
       // Match token against database
       const domain  = process.env["EXPO_PUBLIC_DOMAIN"];
-      const baseUrl = domain ? `https://${domain}` : "http://192.168.100.10:3000";
+      const baseUrl = domain ? `https://${domain}` : "https://workspaceapi-server-production-a8a9.up.railway.app";
       const res  = await fetch(`${baseUrl}/api/auth/biometric-login`, {
         method:  "POST",
         headers: { "Content-Type": "application/json" },

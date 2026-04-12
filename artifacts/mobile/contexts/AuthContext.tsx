@@ -63,8 +63,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (domain) {
       setBaseUrl(`https://${domain}`);
     } else {
-      // Fallback for local development — use your PC's local IP
-      setBaseUrl("http://192.168.100.10:3000");
+      setBaseUrl("https://workspaceapi-server-production-a8a9.up.railway.app");
     }
   }, []);
 

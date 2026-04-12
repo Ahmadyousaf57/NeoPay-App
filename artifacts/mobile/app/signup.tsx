@@ -42,7 +42,7 @@ export default function SignupScreen() {
   // ── Biometric enrollment (called after account is created) ───────
   const enrollBiometric = async (jwtToken: string) => {
     const domain  = process.env["EXPO_PUBLIC_DOMAIN"];
-    const baseUrl = domain ? `https://${domain}` : "http://192.168.100.10:3000";
+    const baseUrl = domain ? `https://${domain}` : "https://workspaceapi-server-production-a8a9.up.railway.app";
 
     if (Platform.OS === "web") {
       // Web can't scan — skip silently
@@ -124,7 +124,7 @@ export default function SignupScreen() {
     setLoading(true);
     try {
       const domain  = process.env["EXPO_PUBLIC_DOMAIN"];
-      const baseUrl = domain ? `https://${domain}` : "http://192.168.100.10:3000";
+      const baseUrl = domain ? `https://${domain}` : "https://workspaceapi-server-production-a8a9.up.railway.app";
 
       const res  = await fetch(`${baseUrl}/api/auth/signup`, {
         method:  "POST",
